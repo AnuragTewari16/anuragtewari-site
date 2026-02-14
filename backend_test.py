@@ -251,7 +251,8 @@ class PersonalWebsiteAPITester:
             print(f"\n❌ FAILED TESTS:")
             for result in self.results:
                 if not result['success']:
-                    print(f"   - {result['test']}: {result.get('error', f'Status {result[\"actual_status\"]}'')}")
+                    error_info = result.get('error', f'Status {result["actual_status"]}')
+                    print(f"   - {result['test']}: {error_info}")
 
         return self.tests_passed == self.tests_run
 
