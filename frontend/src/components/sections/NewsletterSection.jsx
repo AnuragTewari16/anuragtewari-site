@@ -2,23 +2,11 @@ import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Mail, CheckCircle, Loader2 } from 'lucide-react';
-import axios from 'axios';
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
-
-// Configuration for future email service integration
-// To integrate ConvertKit or another provider:
-// 1. Add your API key to environment variables
-// 2. Uncomment and update the external service call below
-// 3. Optionally keep MongoDB storage as backup
-const NEWSLETTER_CONFIG = {
-  // Set to true when you want to integrate an external service
-  useExternalService: false,
-  // External service endpoint (e.g., ConvertKit API)
-  // externalEndpoint: 'https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe',
-  // Keep storing in MongoDB even when using external service
-  storeInDatabase: true,
-};
+// Static newsletter form - ready for future integration
+// To connect to ConvertKit, Mailchimp, etc:
+// 1. Add your form action URL
+// 2. Update the handleSubmit function
 
 export const NewsletterSection = () => {
   const [name, setName] = useState('');
@@ -45,33 +33,21 @@ export const NewsletterSection = () => {
 
     setStatus('loading');
     
-    try {
-      // Future: Add external service integration here
-      // if (NEWSLETTER_CONFIG.useExternalService) {
-      //   await axios.post(NEWSLETTER_CONFIG.externalEndpoint, {
-      //     api_key: process.env.REACT_APP_CONVERTKIT_API_KEY,
-      //     email: email,
-      //     first_name: name,
-      //   });
-      // }
-
-      // Store in database (current implementation)
-      if (NEWSLETTER_CONFIG.storeInDatabase) {
-        const response = await axios.post(`${API}/newsletter`, { name, email });
-        setStatus('success');
-        setMessage(response.data.message);
-      } else {
-        // Placeholder success for when only external service is used
-        setStatus('success');
-        setMessage('Successfully subscribed to the newsletter!');
-      }
-      
-      setName('');
-      setEmail('');
-    } catch (error) {
-      setStatus('error');
-      setMessage(error.response?.data?.detail || 'Something went wrong. Please try again.');
-    }
+    // Simulate submission delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // TODO: Replace with actual newsletter service integration
+    // Example for ConvertKit:
+    // const response = await fetch('https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ api_key: 'YOUR_API_KEY', email, first_name: name })
+    // });
+    
+    setStatus('success');
+    setMessage('Thanks for subscribing! (Demo mode - connect your newsletter service)');
+    setName('');
+    setEmail('');
   };
 
   return (

@@ -3,9 +3,11 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Mail, Send, CheckCircle, Loader2 } from 'lucide-react';
-import axios from 'axios';
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// Static contact form - ready for future integration
+// To connect to Formspree, Netlify Forms, etc:
+// 1. Add form action or API endpoint
+// 2. Update the handleSubmit function
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -32,15 +34,20 @@ export const ContactSection = () => {
 
     setStatus('loading');
     
-    try {
-      const response = await axios.post(`${API}/contact`, formData);
-      setStatus('success');
-      setResponseMessage(response.data.message);
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      setStatus('error');
-      setResponseMessage(error.response?.data?.detail || 'Something went wrong. Please try again.');
-    }
+    // Simulate submission delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // TODO: Replace with actual form service integration
+    // Example for Formspree:
+    // const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(formData)
+    // });
+    
+    setStatus('success');
+    setResponseMessage('Thanks for your message! (Demo mode - connect your form service)');
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
