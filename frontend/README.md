@@ -1,70 +1,175 @@
-# Getting Started with Create React App
+# Anurag Tewari - Personal Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean, modern personal website for showcasing AI transformation and investing insights.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+- **React 19** - Frontend framework
+- **Tailwind CSS** - Styling
+- **React Router** - Client-side routing
+- **Lucide React** - Icons
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 📱 Fully responsive design
+- 🎨 Modern, minimal aesthetic
+- 📝 Static insights/blog pages
+- 📧 Newsletter signup form (ready for integration)
+- 📬 Contact form (ready for integration)
+- ⚖️ Legal pages (Impressum, Privacy Policy)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js 18+ 
+- Yarn (recommended) or npm
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Install dependencies
+yarn install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Start development server
+yarn start
+```
 
-### `npm run eject`
+The site will be available at `http://localhost:3000`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Build for Production
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+yarn build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This creates an optimized production build in the `build` folder.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Deployment
 
-## Learn More
+### Vercel
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Push your code to GitHub
+2. Import the project in Vercel
+3. Set the root directory to `frontend` (if in monorepo)
+4. Deploy!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Netlify
 
-### Code Splitting
+1. Push your code to GitHub
+2. Connect repository in Netlify
+3. Set build command: `yarn build`
+4. Set publish directory: `build`
+5. Deploy!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### GitHub Pages
 
-### Analyzing the Bundle Size
+1. Install gh-pages: `yarn add -D gh-pages`
+2. Add to package.json:
+   ```json
+   "homepage": "https://yourusername.github.io/repo-name",
+   "scripts": {
+     "predeploy": "yarn build",
+     "deploy": "gh-pages -d build"
+   }
+   ```
+3. Run: `yarn deploy`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Customization
 
-### Making a Progressive Web App
+### Adding New Insights
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Edit `/src/data/insights.js` to add, modify, or remove insights:
 
-### Advanced Configuration
+```javascript
+export const aiInsights = [
+  {
+    id: "unique-slug",
+    title: "Your Title",
+    summary: "Brief description",
+    content: `Your markdown-like content here...`,
+    category: "ai", // or "investing"
+    tags: ["tag1", "tag2"],
+    youtube_url: null, // or YouTube URL
+    created_at: "2025-01-15"
+  },
+  // ... more insights
+];
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Connecting Newsletter Service
 
-### Deployment
+Edit `/src/components/sections/NewsletterSection.jsx`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```javascript
+// Replace the TODO section with your service
+const response = await fetch('https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ api_key: 'YOUR_API_KEY', email, first_name: name })
+});
+```
 
-### `npm run build` fails to minify
+### Connecting Contact Form
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Edit `/src/components/sections/ContactSection.jsx`:
+
+```javascript
+// Replace the TODO section with your service (e.g., Formspree)
+const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(formData)
+});
+```
+
+### Updating Social Links
+
+Edit `/src/components/layout/Footer.jsx` to update YouTube, LinkedIn, and Instagram URLs.
+
+### Updating Profile Image
+
+Replace the image URL in `/src/components/sections/HeroSection.jsx`.
+
+## Project Structure
+
+```
+frontend/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Navbar.jsx
+│   │   │   └── Footer.jsx
+│   │   ├── sections/
+│   │   │   ├── HeroSection.jsx
+│   │   │   ├── AboutSection.jsx
+│   │   │   ├── AIPreviewSection.jsx
+│   │   │   ├── InvestingPreviewSection.jsx
+│   │   │   ├── NewsletterSection.jsx
+│   │   │   └── ContactSection.jsx
+│   │   ├── ui/              # Shadcn components
+│   │   └── InsightCard.jsx
+│   ├── data/
+│   │   └── insights.js      # Static content
+│   ├── pages/
+│   │   ├── HomePage.jsx
+│   │   ├── AIInsightsPage.jsx
+│   │   ├── InvestingInsightsPage.jsx
+│   │   ├── InsightDetailPage.jsx
+│   │   ├── ImpressumPage.jsx
+│   │   └── PrivacyPolicyPage.jsx
+│   ├── App.js
+│   ├── App.css
+│   └── index.css
+└── package.json
+```
+
+## License
+
+MIT License - Feel free to use this as a template for your own site.
