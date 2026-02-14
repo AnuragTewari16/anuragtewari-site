@@ -1,0 +1,143 @@
+{
+  "design_system": {
+    "identity": {
+      "name": "Anurag Tewari Portfolio",
+      "tone": "Professional, Accessible, Text-First, Clean, Modern",
+      "archetype": "The Modern Creator (Light, Trustworthy, Minimalist)",
+      "primary_font": "Manrope",
+      "secondary_font": "Inter",
+      "font_import": "@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');"
+    },
+    "colors": {
+      "background": {
+        "default": "#F5F5F7",
+        "paper": "#FFFFFF",
+        "subtle": "#F9FAFB"
+      },
+      "text": {
+        "primary": "#111827",
+        "secondary": "#4B5563",
+        "tertiary": "#9CA3AF",
+        "inverse": "#FFFFFF"
+      },
+      "brand": {
+        "primary": "#1D4ED8",
+        "primary_hover": "#1E40AF",
+        "secondary": "#0D9488",
+        "secondary_light": "#CCFBF1"
+      },
+      "border": {
+        "default": "#E5E7EB",
+        "focus": "#1D4ED8"
+      }
+    },
+    "typography": {
+      "h1": "font-family-manrope text-5xl md:text-6xl font-bold tracking-tight text-gray-900 leading-[1.1]",
+      "h2": "font-family-manrope text-3xl md:text-4xl font-bold tracking-tight text-gray-900",
+      "h3": "font-family-manrope text-2xl font-semibold tracking-tight text-gray-900",
+      "body": "font-family-inter text-base md:text-lg text-gray-600 leading-relaxed",
+      "caption": "text-sm font-medium text-gray-500 uppercase tracking-wider"
+    },
+    "spacing": {
+      "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+      "section_padding": "py-20 md:py-32",
+      "card_padding": "p-6 md:p-8",
+      "grid_gap": "gap-8"
+    },
+    "radius": {
+      "default": "rounded-lg",
+      "button": "rounded-full",
+      "card": "rounded-xl"
+    },
+    "shadows": {
+      "card": "shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow duration-300",
+      "button": "shadow-sm hover:shadow-md"
+    }
+  },
+  "layout_strategies": {
+    "hero_section": {
+      "structure": "Split layout or Centered Text-Heavy",
+      "alignment": "Left-aligned text with Profile Image on Right (Desktop) / Top (Mobile)",
+      "elements": [
+        "H1: Clear Value Prop",
+        "Subtext: Introduction",
+        "CTA Group: 'Subscribe to Newsletter' (Primary) + 'View Insights' (Secondary)",
+        "Profile Image: Circular/Squircle mask with subtle border"
+      ]
+    },
+    "bento_grid": {
+      "usage": "For 'Insights' previews (AI & Investing)",
+      "classes": "grid grid-cols-1 md:grid-cols-3 gap-6",
+      "items": [
+        "Featured Article (col-span-2)",
+        "Quick Stat / Quote (col-span-1)",
+        "Standard Article (col-span-1)"
+      ]
+    },
+    "card_style": {
+      "base": "bg-white border border-gray-100 overflow-hidden group hover:border-blue-200 transition-all",
+      "content_layout": "flex flex-col h-full justify-between"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-blue-700 hover:bg-blue-800 text-white font-medium px-8 py-3 rounded-full transition-all shadow-sm hover:translate-y-[-1px]",
+      "secondary": "bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 font-medium px-8 py-3 rounded-full transition-all",
+      "ghost": "text-gray-600 hover:text-blue-700 font-medium hover:bg-blue-50 px-4 py-2 rounded-lg"
+    },
+    "badges": {
+      "ai": "bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide",
+      "investing": "bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide"
+    },
+    "forms": {
+      "input": "bg-white border-gray-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 rounded-lg h-12 px-4 w-full transition-all",
+      "label": "block text-sm font-medium text-gray-700 mb-2"
+    }
+  },
+  "assets": {
+    "images": [
+      {
+        "category": "profile_placeholder",
+        "url": "https://images.unsplash.com/photo-1767175473698-859bc73e8e64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwcHJvZmVzc2lvbmFsJTIwbWluaW1hbGlzdCUyMHBvcnRyYWl0JTIwbWFufGVufDB8fHx8MTc3MTA2NTE0MHww&ixlib=rb-4.1.0&q=85",
+        "description": "Professional smiling man in dark jacket",
+        "usage": "Hero section profile photo, About section"
+      },
+      {
+        "category": "abstract_tech",
+        "url": "https://images.unsplash.com/photo-1538806932492-b6ac36ccfa28?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwYWJzdHJhY3QlMjBnZW9tZXRyaWMlMjBzaGFwZXMlMjB0ZWNobm9sb2d5JTIwYmFja2dyb3VuZCUyMHdoaXRlJTIwYmx1ZXxlbnwwfHx8fDE3NzEwNjUxNTJ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Blue and white digital abstract",
+        "usage": "Subtle background for AI section or Newsletter card"
+      }
+    ],
+    "icons": {
+      "library": "lucide-react",
+      "preferred": ["ArrowRight", "TrendingUp", "Brain", "Mail", "Linkedin", "Twitter", "ExternalLink"]
+    }
+  },
+  "universal_guidelines": {
+    "do": [
+      "Use 'Manrope' for all Headings.",
+      "Use 'Inter' for body text.",
+      "Ensure all text has adequate contrast (Gray 900 for heads, Gray 600 for body).",
+      "Use generous whitespace (py-24, gap-12).",
+      "Make the site 'Text-First' - imagery should support, not dominate.",
+      "Add 'data-testid' to all interactive elements."
+    ],
+    "dont": [
+      "Do NOT use gradients on text.",
+      "Do NOT use heavy drop shadows (keep it flat/subtle).",
+      "Do NOT use 'lorem ipsum' - write realistic copy about AI/Investing.",
+      "Do NOT use center alignment for long paragraphs."
+    ]
+  },
+  "implementation_steps": [
+    "1. Setup 'Manrope' font in index.css.",
+    "2. Configure tailwind.config.js with the custom colors (#F5F5F7, #1D4ED8, etc.).",
+    "3. Build the 'Hero' component with the profile image and value prop.",
+    "4. Build the 'BentoGrid' component for displaying insights.",
+    "5. Create the 'Newsletter' component.",
+    "6. Assemble the 'Home' page.",
+    "7. Create 'AI Insights' and 'Investing Insights' pages reusing the grid.",
+    "8. Ensure mobile responsiveness (stack grids to cols-1)."
+  ]
+}
