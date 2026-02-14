@@ -61,14 +61,21 @@ export const HeroSection = () => {
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-gray-100">
-                {/* Replace src with your actual image path: /images/anurag-profile.jpg */}
+                {/* 
+                  To use your OneDrive image:
+                  1. Open OneDrive and find your image
+                  2. Right-click → Share → "Anyone with the link" (not "People you specify")
+                  3. Copy the new public link
+                  4. Or download and place in /public/images/anurag-profile.jpg
+                */}
                 <img
                   src="/images/anurag-profile.jpg"
                   alt="Anurag Tewari"
                   className="w-full h-full object-cover"
                   data-testid="hero-profile-image"
                   onError={(e) => {
-                    // Fallback to placeholder if image not found
+                    // Fallback to a professional placeholder if local image not found
+                    e.target.onerror = null;
                     e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face';
                   }}
                 />
