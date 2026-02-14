@@ -1,36 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Loader2, AlertTriangle, Youtube, Calendar } from 'lucide-react';
+import { ArrowLeft, AlertTriangle, Youtube, Calendar } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import axios from 'axios';
-
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+import { getInsightById } from '../data/insights';
 
 export const InsightDetailPage = () => {
-  const { id, category } = useParams();
-  const [insight, setInsight] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { id } = useParams();
+  const insight = getInsightById(id);
 
-  const isInvesting = category === 'investing-insights';
+  const isInvesting = insight?.category === 'investing';
   const backLink = isInvesting ? '/investing-insights' : '/ai-insights';
   const backText = isInvesting ? 'Investing Insights' : 'AI Insights';
-
-  useEffect(() => {
-    const fetchInsight = async () => {
-      try {
-        const response = await axios.get(`${API}/insights/${id}`);
-        setInsight(response.data);
-      } catch (err) {
-        setError('Insight not found.');
-        console.error('Error fetching insight:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchInsight();
-  }, [id]);
 
   // Convert markdown-like content to HTML
   const renderContent = (content) => {
@@ -116,28 +96,16 @@ export const InsightDetailPage = () => {
     return elements;
   };
 
-  if (loading) {
-    return (
-      <main className="pt-24 pb-16 md:pt-32 md:pb-24 bg-surface-default min-h-screen" data-testid="insight-detail-loading">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 text-brand-primary animate-spin" />
-          </div>
-        </div>
-      </main>
-    );
-  }
-
-  if (error || !insight) {
+  if (!insight) {
     return (
       <main className="pt-24 pb-16 md:pt-32 md:pb-24 bg-surface-default min-h-screen" data-testid="insight-detail-error">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center py-20">
-            <p className="text-red-600 mb-4">{error || 'Insight not found.'}</p>
+            <p className="text-red-600 mb-4">Insight not found.</p>
             <Button asChild variant="outline">
-              <Link to={backLink}>
+              <Link to="/ai-insights">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to {backText}
+                Back to AI Insights
               </Link>
             </Button>
           </div>
