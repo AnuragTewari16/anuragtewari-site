@@ -12,6 +12,8 @@ import { HomePage } from "./pages/HomePage";
 import { AIInsightsPage } from "./pages/AIInsightsPage";
 import { InvestingInsightsPage } from "./pages/InvestingInsightsPage";
 import { InsightDetailPage } from "./pages/InsightDetailPage";
+import { ImpressumPage } from "./pages/ImpressumPage";
+import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -56,6 +58,8 @@ function App() {
           <Route path="/ai-insights/:id" element={<InsightDetailPage />} />
           <Route path="/investing-insights" element={<InvestingInsightsPage />} />
           <Route path="/investing-insights/:id" element={<InsightDetailPage />} />
+          <Route path="/impressum" element={<ImpressumPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>
         <Footer />
         <Toaster position="bottom-right" richColors />

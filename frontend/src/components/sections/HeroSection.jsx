@@ -35,7 +35,7 @@ export const HeroSection = () => {
                 className="bg-brand-primary hover:bg-brand-primary-hover text-white font-medium px-8 py-3 h-auto rounded-full transition-all shadow-sm hover:-translate-y-0.5"
                 data-testid="cta-watch-videos"
               >
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://youtube.com/@anuragautomates?si=n1NMh3xTf0wO2RoG" target="_blank" rel="noopener noreferrer">
                   Watch my videos
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
@@ -57,15 +57,20 @@ export const HeroSection = () => {
             </p>
           </div>
 
-          {/* Profile Image Placeholder */}
+          {/* Profile Image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-gray-100">
+                {/* Replace src with your actual image path: /images/anurag-profile.jpg */}
                 <img
-                  src="https://images.unsplash.com/photo-1767175473698-859bc73e8e64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwcHJvZmVzc2lvbmFsJTIwbWluaW1hbGlzdCUyMHBvcnRyYWl0JTIwbWFufGVufDB8fHx8MTc3MTA2NTE0MHww&ixlib=rb-4.1.0&q=85"
+                  src="/images/anurag-profile.jpg"
                   alt="Anurag Tewari"
                   className="w-full h-full object-cover"
                   data-testid="hero-profile-image"
+                  onError={(e) => {
+                    // Fallback to placeholder if image not found
+                    e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face';
+                  }}
                 />
               </div>
               {/* Decorative element */}

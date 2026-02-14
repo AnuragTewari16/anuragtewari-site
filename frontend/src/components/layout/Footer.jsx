@@ -9,32 +9,32 @@ export const Footer = () => {
     { 
       name: 'Anurag Automates', 
       icon: Youtube, 
-      href: '#', // Placeholder
+      href: 'https://youtube.com/@anuragautomates?si=n1NMh3xTf0wO2RoG',
       label: 'Anurag Automates YouTube'
     },
     { 
       name: 'Anurag Invests', 
       icon: Youtube, 
-      href: '#', // Placeholder
+      href: 'https://youtube.com/@anuraginvests?si=2-DswdeJrvTvETFz',
       label: 'Anurag Invests YouTube'
     },
     { 
       name: 'LinkedIn', 
       icon: Linkedin, 
-      href: '#', // Placeholder
+      href: 'https://www.linkedin.com/in/anuragtiwari16',
       label: 'LinkedIn Profile'
     },
     { 
       name: 'Instagram', 
       icon: Instagram, 
-      href: '#', // Placeholder
+      href: 'https://www.instagram.com/anuragtewari16/',
       label: 'Instagram Profile'
     },
   ];
 
   return (
     <footer className="bg-white border-t border-gray-200" data-testid="footer">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-[1140px] mx-auto px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Copyright and disclaimer */}
           <div className="text-center md:text-left">
@@ -64,12 +64,24 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Future legal links placeholder */}
+        {/* Legal links */}
         <div className="mt-8 pt-6 border-t border-gray-100 text-center">
-          <div className="flex justify-center space-x-6 text-xs text-gray-400">
-            <span>Impressum (Coming Soon)</span>
-            <span>•</span>
-            <span>Privacy Policy (Coming Soon)</span>
+          <div className="flex justify-center items-center space-x-6 text-xs">
+            <Link 
+              to="/impressum" 
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+              data-testid="footer-impressum-link"
+            >
+              Impressum
+            </Link>
+            <span className="text-gray-300">•</span>
+            <Link 
+              to="/privacy-policy" 
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+              data-testid="footer-privacy-link"
+            >
+              Privacy Policy
+            </Link>
           </div>
         </div>
       </div>
