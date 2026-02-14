@@ -15,17 +15,13 @@ export const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className="order-2 lg:order-1">
-            <h1 className="font-manrope text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-tight mb-6">
-              Practical AI transformation and smarter investing for working professionals.
+          <div className="order-2 lg:order-1 max-w-xl">
+            <h1 className="font-manrope text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-gray-900 leading-[1.1] mb-6">
+              Practical AI transformation and smarter investing.
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-600 mb-4 leading-relaxed">
-              I help working professionals and small businesses use AI to think better, work smarter, and build paths toward financial freedom.
-            </p>
-            
-            <p className="text-base text-gray-500 mb-8">
-              Based in Berlin, originally from India. Exploring AI transformation, technical investing, and long term financial freedom.
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
+              I explore how AI and disciplined investing can help you think better, work smarter, and build long-term financial freedom.
             </p>
 
             {/* CTA Buttons */}
