@@ -60,7 +60,7 @@ export const HeroSection = () => {
           {/* Profile Image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-gray-100">
+              <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-gray-100">
                 <img
                   src="https://customer-assets.emergentagent.com/job_smart-work-money/artifacts/os7vroun_47852617_Male_LongCoat_104_Design_0_results-4.jpg"
                   alt="Anurag Tewari"
@@ -69,7 +69,7 @@ export const HeroSection = () => {
                 />
               </div>
               {/* Decorative element */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-brand-primary/10 rounded-2xl -z-10"></div>
+              <div className="absolute -bottom-4 -right-4 w-28 h-28 bg-brand-primary/10 rounded-2xl -z-10"></div>
             </div>
           </div>
         </div>
