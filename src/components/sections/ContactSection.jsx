@@ -87,7 +87,7 @@ export const ContactSection = () => {
               <span className="text-green-800 font-medium">{responseMessage}</span>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4" data-testid="contact-form">
+            <form action="https://formspree.io/f/mnjbdrvg" method="POST" className="space-y-4" data-testid="contact-form">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Input
                   type="text"
