@@ -5,18 +5,13 @@ import { Youtube, Linkedin, Instagram } from 'lucide-react';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const youtubeChannels = [
-    { 
-      name: 'Anurag Automates', 
-      href: 'https://youtube.com/@anuragautomates?si=n1NMh3xTf0wO2RoG',
-    },
-    { 
-      name: 'Anurag Invests', 
-      href: 'https://youtube.com/@anuraginvests?si=2-DswdeJrvTvETFz',
-    },
-  ];
-
   const socialLinks = [
+    { 
+      name: 'YouTube', 
+      icon: Youtube, 
+      href: 'https://youtube.com/@anurag_tewari',
+      label: 'YouTube Channel'
+    },
     { 
       name: 'LinkedIn', 
       icon: Linkedin, 
@@ -46,38 +41,19 @@ export const Footer = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-6">
-            {/* YouTube Channels with names */}
-            {youtubeChannels.map((channel) => (
-              <a
-                key={channel.name}
-                href={channel.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-500 hover:text-red-600 transition-colors group"
-                aria-label={channel.name}
-                data-testid={`footer-${channel.name.toLowerCase().replace(' ', '-')}`}
-              >
-                <Youtube className="h-5 w-5" />
-                <span className="text-sm font-medium">{channel.name}</span>
-              </a>
-            ))}
-            
-            {/* Separator */}
-            <span className="text-gray-200">|</span>
-            
-            {/* Other social icons */}
+          <div className="flex items-center gap-4">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-brand-primary transition-colors p-2 rounded-full hover:bg-gray-100"
+                className="flex items-center gap-2 text-gray-400 hover:text-brand-primary transition-colors p-2 rounded-lg hover:bg-gray-50"
                 aria-label={social.label}
-                data-testid={`footer-${social.name.toLowerCase().replace(' ', '-')}`}
+                data-testid={`footer-${social.name.toLowerCase()}`}
               >
                 <social.icon className="h-5 w-5" />
+                <span className="text-sm font-medium hidden sm:inline">{social.name}</span>
               </a>
             ))}
           </div>

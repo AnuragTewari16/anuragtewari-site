@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ExternalLink } from 'lucide-react';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'AI Insights', path: '/ai-insights' },
-    { name: 'Investing Insights', path: '/investing-insights' },
-    { name: 'Newsletter', path: '/#newsletter' },
-    { name: 'Contact', path: '/#contact' },
+    { name: 'Home', path: '/', external: false },
+    { name: 'Insights', path: '/insights', external: false },
+    { name: 'YouTube', path: 'https://youtube.com/@anurag_tewari', external: true },
+    { name: 'Newsletter', path: '/#newsletter', external: false },
+    { name: 'Contact', path: '/#contact', external: false },
   ];
 
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
-    if (path.startsWith('/#')) return false;
+    if (path.startsWith('/#') || path.startsWith('http')) return false;
     return location.pathname.startsWith(path);
   };
 
@@ -52,37 +52,57 @@ export const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
             {navLinks.map((link, index) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={() => handleNavClick(link.path)}
-                className={`
-                  relative font-inter text-[14px] tracking-[0.01em] py-2 px-5
-                  min-h-[40px] flex items-center
-                  transition-all duration-200 ease-out
-                  ${index === navLinks.length - 1 ? 'pr-0' : ''}
-                  ${isActive(link.path)
-                    ? 'text-brand-primary font-semibold'
-                    : 'text-gray-500 font-medium hover:text-gray-900'
-                  }
-                  group
-                `}
-                data-testid={`nav-${link.name.toLowerCase().replace(' ', '-')}`}
-              >
-                {link.name}
-                {/* Active indicator / Hover underline */}
-                <span 
+              link.external ? (
+                <a
+                  key={link.name}
+                  href={link.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`
-                    absolute bottom-1 left-5 right-5 h-[2px] rounded-full
+                    relative font-inter text-[14px] tracking-[0.01em] py-2 px-5
+                    min-h-[40px] flex items-center gap-1
                     transition-all duration-200 ease-out
-                    ${index === navLinks.length - 1 ? 'right-0' : ''}
-                    ${isActive(link.path) 
-                      ? 'bg-brand-primary scale-x-100' 
-                      : 'bg-gray-300 scale-x-0 group-hover:scale-x-100'
-                    }
+                    text-gray-500 font-medium hover:text-gray-900
+                    group
                   `}
-                />
-              </Link>
+                  data-testid={`nav-${link.name.toLowerCase()}`}
+                >
+                  {link.name}
+                  <ExternalLink className="w-3 h-3 opacity-50" />
+                  <span className="absolute bottom-1 left-5 right-5 h-[2px] rounded-full bg-gray-300 scale-x-0 group-hover:scale-x-100 transition-all duration-200 ease-out" />
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => handleNavClick(link.path)}
+                  className={`
+                    relative font-inter text-[14px] tracking-[0.01em] py-2 px-5
+                    min-h-[40px] flex items-center
+                    transition-all duration-200 ease-out
+                    ${index === navLinks.length - 1 ? 'pr-0' : ''}
+                    ${isActive(link.path)
+                      ? 'text-brand-primary font-semibold'
+                      : 'text-gray-500 font-medium hover:text-gray-900'
+                    }
+                    group
+                  `}
+                  data-testid={`nav-${link.name.toLowerCase()}`}
+                >
+                  {link.name}
+                  <span 
+                    className={`
+                      absolute bottom-1 left-5 right-5 h-[2px] rounded-full
+                      transition-all duration-200 ease-out
+                      ${index === navLinks.length - 1 ? 'right-0' : ''}
+                      ${isActive(link.path) 
+                        ? 'bg-brand-primary scale-x-100' 
+                        : 'bg-gray-300 scale-x-0 group-hover:scale-x-100'
+                      }
+                    `}
+                  />
+                </Link>
+              )
             ))}
           </div>
 
@@ -105,23 +125,38 @@ export const Navbar = () => {
           >
             <div className="flex flex-col space-y-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => handleNavClick(link.path)}
-                  className={`
-                    font-inter text-[15px] tracking-[0.01em] py-3 px-3 -mx-3 rounded-lg
-                    min-h-[44px] flex items-center
-                    transition-all duration-200
-                    ${isActive(link.path)
-                      ? 'text-brand-primary font-semibold bg-blue-50'
-                      : 'text-gray-600 font-medium hover:text-gray-900 hover:bg-gray-50'
-                    }
-                  `}
-                  data-testid={`mobile-nav-${link.name.toLowerCase().replace(' ', '-')}`}
-                >
-                  {link.name}
-                </Link>
+                link.external ? (
+                  <a
+                    key={link.name}
+                    href={link.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="font-inter text-[15px] tracking-[0.01em] py-3 px-3 -mx-3 rounded-lg min-h-[44px] flex items-center gap-2 text-gray-600 font-medium hover:text-gray-900 hover:bg-gray-50 transition-all duration-200"
+                    data-testid={`mobile-nav-${link.name.toLowerCase()}`}
+                  >
+                    {link.name}
+                    <ExternalLink className="w-3 h-3 opacity-50" />
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    onClick={() => handleNavClick(link.path)}
+                    className={`
+                      font-inter text-[15px] tracking-[0.01em] py-3 px-3 -mx-3 rounded-lg
+                      min-h-[44px] flex items-center
+                      transition-all duration-200
+                      ${isActive(link.path)
+                        ? 'text-brand-primary font-semibold bg-blue-50'
+                        : 'text-gray-600 font-medium hover:text-gray-900 hover:bg-gray-50'
+                      }
+                    `}
+                    data-testid={`mobile-nav-${link.name.toLowerCase()}`}
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
             </div>
           </div>

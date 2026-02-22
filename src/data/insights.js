@@ -1,7 +1,7 @@
 // Static insights data - no backend required
 // Add, edit, or remove insights directly in this file
 
-export const aiInsights = [
+export const insights = [
   {
     id: "ai-weekly-reviews",
     title: "How I Use AI to Structure My Weekly Reviews",
@@ -137,10 +137,7 @@ Pick one workflow. Use it for a week. Then add another. The goal isn't to AI-ify
     tags: ["small business", "workflows", "productivity"],
     youtube_url: null,
     created_at: "2025-01-05"
-  }
-];
-
-export const investingInsights = [
+  },
   {
     id: "position-sizing",
     title: "Position Sizing: The Risk Management Fundamental Most Ignore",
@@ -191,8 +188,8 @@ Higher conviction doesn't mean bigger bets. It means tighter stops or more favor
 ## The Bottom Line
 
 Position sizing is boring. It doesn't make for exciting trading stories. But it's the difference between staying in the game and blowing up.`,
-    category: "investing",
-    tags: ["risk management", "technical analysis", "fundamentals"],
+    category: "markets",
+    tags: ["risk management", "trading", "fundamentals"],
     youtube_url: null,
     created_at: "2025-01-12"
   },
@@ -247,8 +244,8 @@ If a support level breaks decisively, it often becomes resistance. This is where
 ## Practice
 
 The best way to learn is to draw levels on charts and track what happens. No money needed - just observation.`,
-    category: "investing",
-    tags: ["technical analysis", "fundamentals", "education"],
+    category: "markets",
+    tags: ["technical analysis", "trading", "education"],
     youtube_url: null,
     created_at: "2025-01-08"
   },
@@ -322,17 +319,23 @@ Everything else is either:
 - Higher risk than presented
 
 That doesn't mean don't try other approaches. Just go in with realistic expectations.`,
-    category: "investing",
-    tags: ["passive income", "long-term", "fundamentals"],
+    category: "markets",
+    tags: ["passive income", "investing", "fundamentals"],
     youtube_url: null,
     created_at: "2025-01-03"
   }
 ];
 
 // Helper function to get all insights
-export const getAllInsights = () => [...aiInsights, ...investingInsights];
+export const getAllInsights = () => insights;
 
 // Helper function to get insight by ID
 export const getInsightById = (id) => {
-  return getAllInsights().find(insight => insight.id === id);
+  return insights.find(insight => insight.id === id);
+};
+
+// Helper function to get insights by category
+export const getInsightsByCategory = (category) => {
+  if (!category || category === 'all') return insights;
+  return insights.filter(insight => insight.category === category);
 };
