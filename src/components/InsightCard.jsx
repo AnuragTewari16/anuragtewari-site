@@ -3,15 +3,13 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Youtube } from 'lucide-react';
 
 export const InsightCard = ({ insight, variant = 'default' }) => {
-  const { id, title, summary, tags, category, youtube_url } = insight;
+  const { id, title, summary, tags, category } = insight;
   
   const badgeClass = category === 'ai' 
     ? 'bg-blue-50 text-blue-700' 
     : 'bg-teal-50 text-teal-700';
   
-  const linkPath = category === 'ai' 
-    ? `/ai-insights/${id}` 
-    : `/investing-insights/${id}`;
+  const linkPath = `/insights/${id}`;
 
   return (
     <article 
@@ -54,9 +52,9 @@ export const InsightCard = ({ insight, variant = 'default' }) => {
             <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
           
-          {youtube_url && (
+          {insight.youtube_url && (
             <a 
-              href={youtube_url}
+              href={insight.youtube_url}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-gray-500 hover:text-red-600 text-sm transition-colors"

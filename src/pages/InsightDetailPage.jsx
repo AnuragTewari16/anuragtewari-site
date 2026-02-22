@@ -8,10 +8,6 @@ export const InsightDetailPage = () => {
   const { id } = useParams();
   const insight = getInsightById(id);
 
-  const isInvesting = insight?.category === 'investing';
-  const backLink = isInvesting ? '/investing-insights' : '/ai-insights';
-  const backText = isInvesting ? 'Investing Insights' : 'AI Insights';
-
   // Convert markdown-like content to HTML
   const renderContent = (content) => {
     if (!content) return null;
@@ -103,9 +99,9 @@ export const InsightDetailPage = () => {
           <div className="text-center py-20">
             <p className="text-red-600 mb-4">Insight not found.</p>
             <Button asChild variant="outline">
-              <Link to="/ai-insights">
+              <Link to="/insights">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to AI Insights
+                Back to Insights
               </Link>
             </Button>
           </div>
@@ -123,16 +119,16 @@ export const InsightDetailPage = () => {
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
         <Link 
-          to={backLink}
+          to="/insights"
           className="inline-flex items-center text-gray-600 hover:text-brand-primary transition-colors mb-8"
           data-testid="insight-back-link"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to {backText}
+          Back to Insights
         </Link>
 
-        {/* Investing Disclaimer */}
-        {insight.category === 'investing' && (
+        {/* Markets Disclaimer */}
+        {insight.category === 'markets' && (
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-5 mb-8" data-testid="insight-disclaimer">
             <div className="flex items-start gap-3">
               <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
@@ -212,9 +208,9 @@ export const InsightDetailPage = () => {
         {/* Back to list */}
         <div className="mt-12 pt-8 border-t border-gray-200">
           <Button asChild variant="outline" className="rounded-full">
-            <Link to={backLink}>
+            <Link to="/insights">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to {backText}
+              Back to Insights
             </Link>
           </Button>
         </div>
