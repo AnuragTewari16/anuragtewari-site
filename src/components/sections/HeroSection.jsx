@@ -1,15 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../ui/button';
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowRight, Youtube } from 'lucide-react';
 
 export const HeroSection = () => {
-  const scrollToNewsletter = () => {
-    const element = document.getElementById('newsletter');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-surface-default" data-testid="hero-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,11 +11,11 @@ export const HeroSection = () => {
           {/* Text Content */}
           <div className="order-2 lg:order-1 max-w-xl">
             <h1 className="font-manrope text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-gray-900 leading-[1.1] mb-6">
-              Practical AI transformation and smarter investing.
+              Anurag Tewari
             </h1>
             
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8">
-              I explore how AI and disciplined investing can help you think better, work smarter, and build long-term financial freedom.
+              Practical insights on AI tools, investing, and financial markets — for ambitious professionals building leverage beyond their 9–5.
             </p>
 
             {/* CTA Buttons */}
@@ -29,22 +23,24 @@ export const HeroSection = () => {
               <Button
                 asChild
                 className="bg-brand-primary hover:bg-brand-primary-hover text-white font-medium px-8 py-3 h-auto rounded-full transition-all shadow-sm hover:-translate-y-0.5"
-                data-testid="cta-watch-videos"
+                data-testid="cta-read-insights"
               >
-                <a href="https://youtube.com/@anuragautomates?si=n1NMh3xTf0wO2RoG" target="_blank" rel="noopener noreferrer">
-                  Watch my videos
+                <Link to="/insights">
+                  Read Insights
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </Link>
               </Button>
               
               <Button
+                asChild
                 variant="outline"
-                onClick={scrollToNewsletter}
                 className="bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 font-medium px-8 py-3 h-auto rounded-full transition-all"
-                data-testid="cta-join-newsletter"
+                data-testid="cta-watch-youtube"
               >
-                <Mail className="mr-2 h-4 w-4" />
-                Join the newsletter
+                <a href="https://youtube.com/@anurag_tewari" target="_blank" rel="noopener noreferrer">
+                  <Youtube className="mr-2 h-4 w-4 text-red-600" />
+                  Watch on YouTube
+                </a>
               </Button>
             </div>
 

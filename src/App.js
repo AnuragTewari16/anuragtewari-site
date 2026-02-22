@@ -9,8 +9,7 @@ import { Footer } from "./components/layout/Footer";
 
 // Pages
 import { HomePage } from "./pages/HomePage";
-import { AIInsightsPage } from "./pages/AIInsightsPage";
-import { InvestingInsightsPage } from "./pages/InvestingInsightsPage";
+import { InsightsPage } from "./pages/InsightsPage";
 import { InsightDetailPage } from "./pages/InsightDetailPage";
 import { ImpressumPage } from "./pages/ImpressumPage";
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
@@ -54,10 +53,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/ai-insights" element={<AIInsightsPage />} />
-          <Route path="/ai-insights/:id" element={<InsightDetailPage />} />
-          <Route path="/investing-insights" element={<InvestingInsightsPage />} />
-          <Route path="/investing-insights/:id" element={<InsightDetailPage />} />
+          <Route path="/insights" element={<InsightsPage />} />
+          <Route path="/insights/:id" element={<InsightDetailPage />} />
           <Route path="/impressum" element={<ImpressumPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         </Routes>
