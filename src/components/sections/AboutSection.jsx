@@ -11,26 +11,20 @@ export const AboutSection = () => {
           
           <div className="space-y-6 text-gray-600 leading-relaxed">
             <p className="text-lg">
-              I'm a multilingual creator based in Berlin with a background in engineering and business. 
+              I'm a creator based in Berlin with a background in engineering and business. 
               For over a decade, I've worked in data-driven, high-responsibility environments where 
               decisions carry real consequences.
             </p>
             
             <p className="text-lg">
-              Today, I'm passionate about <strong className="text-gray-900">AI transformation</strong>, 
-              <strong className="text-gray-900"> technical investing</strong>, and designing paths 
-              toward <strong className="text-gray-900">financial freedom</strong>.
+              Today, I'm passionate about exploring the intersection of <strong className="text-gray-900">AI tools</strong>, 
+              <strong className="text-gray-900"> investing</strong>, and <strong className="text-gray-900">building leverage</strong> — 
+              sharing what I learn along the way.
             </p>
             
             <p className="text-lg">
-              I'm still a full-time employee. This site is my personal space to learn by doing, 
-              share my experiments, and slowly build a community. You can find my work on 
-              <strong className="text-gray-900"> Anurag Automates</strong> (for AI content) and 
-              <strong className="text-gray-900"> Anurag Invests</strong> (for investing content).
-            </p>
-            
-            <p className="text-lg">
-              This site is about <em>education and exploration</em>, not paid services.
+              I'm still a full-time employee. This site and my YouTube channel are my personal spaces 
+              to learn by doing, share my experiments, and connect with others on a similar journey.
             </p>
 
             {/* Values statement */}
